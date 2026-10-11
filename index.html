@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maro's Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    
+<div class="logo">
+    <img
+        src="images/logo/maros-logo.png"
+        alt="Maro's Restaurant Logo"
+        class="restaurant-logo"
+    >
+    <h1>Maro's Restaurant</h1>
+</div>
+
+
+    <button type="button" id="language-toggle">
+        AR / EN
+    </button>
+</header>
+<main>
+    <section id="hero">
+    <h2 id="hero-title">Welcome to Maro's Restaurant</h2>
+   <p id="hero-tagline">Fresh Food, Great Moments</p>
+    <p id="hero-description">
+        Discover delicious meals made with fresh ingredients.
+    </p>
+</section>   
+<section id="menu">
+    <h2 id="menu-title">Our Menu</h2>
+    <div class="search-container">
+    <label for="menu-search" id="search-label">Search Menu</label>
+
+    <input
+        type="search"
+        id="menu-search"
+        name="menu-search"
+        placeholder="Search for your favorite dish..."
+        autocomplete="off"
+    >
+</div>
+    
+<div class="categories" role="group" aria-label="Menu categories">
+    <button type="button" class="category-btn active" data-category="all">All</button>
+    <button type="button" class="category-btn" data-category="appetizers">Appetizers</button>
+    <button type="button" class="category-btn" data-category="main-courses">Main Courses</button>
+    <button type="button" class="category-btn" data-category="pizza-burgers">Pizza &amp; Burgers</button>
+    <button type="button" class="category-btn" data-category="pasta">Pasta</button>
+    <button type="button" class="category-btn" data-category="desserts">Desserts</button>
+    <button type="button" class="category-btn" data-category="beverages">Beverages</button>
+</div>
+
+<div class="menu-items">
+
+    <!-- APPETIZERS -->
+
+    <article class="menu-card" data-category="appetizers"
+        data-name-ar="بطاطس مقلية"
+        data-description-ar="بطاطس ذهبية مقرمشة تقدم مع الكاتشب.">
+        <img
+    src="images/food/french-fries.jpg"
+    alt="French Fries"
+    loading="lazy"
+    decoding="async"
+>
+        <div class="menu-card-info">
+            <h3>French Fries</h3>
+            <p>Crispy golden fries served with ketchup.</p>
+            <span class="price">65 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="appetizers"
+            data-name-ar="أصابع موتزاريلا"
+            data-description-ar="أصابع جبنة موتزاريلا مقرمشة.">
+            <img src="images/food/mozzarella-sticks.jpg" 
+            alt="Mozzarella Sticks"
+            loading="lazy"
+            decoding="async">
+            <div class="menu-card-info">
+            <h3>Mozzarella Sticks</h3>
+            <p>Crispy mozzarella cheese sticks served golden.</p>
+            <span class="price">110 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="appetizers"
+        data-name-ar="أجنحة دجاج"
+        data-description-ar="أجنحة دجاج متبلة بصوص لذيذ.">
+        <img src="images/food/chicken-wings.jpg" 
+        alt="Chicken Wings"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Chicken Wings</h3>
+            <p>Seasoned chicken wings served with a tasty sauce.</p>
+            <span class="price">135 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="appetizers"
+        data-name-ar="ناتشوز"
+        data-description-ar="رقائق تورتيلا مقرمشة مع الجبنة.">
+        <img src="images/food/nachos.jpg" 
+        alt="Nachos"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Nachos</h3>
+            <p>Crispy tortilla chips topped with melted cheese.</p>
+            <span class="price">100 EGP</span>
+        </div>
+    </article>
+
+
+    <!-- MAIN COURSES -->
+
+    <article class="menu-card" data-category="main-courses"
+        data-name-ar="دجاج مشوي"
+        data-description-ar="دجاج مشوي متبل بالأعشاب والتوابل.">
+        <img src="images/food/grilled-chicken.jpg" 
+        alt="Grilled Chicken"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Grilled Chicken</h3>
+            <p>Grilled chicken seasoned with herbs and spices.</p>
+            <span class="price">240 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="main-courses"
+        data-name-ar="ستيك لحم"
+        data-description-ar="قطعة لحم بقري مشوية غنية بالنكهة.">
+        <img src="images/food/beef-steak.jpg"
+         alt="Beef Steak"
+         loading="lazy"
+            decoding="async">
+        <div class="menu-card-info">
+            <h3>Beef Steak</h3>
+            <p>Juicy grilled beef steak full of flavor.</p>
+            <span class="price">390 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="main-courses"
+        data-name-ar="دجاج كوردون بلو"
+        data-description-ar="دجاج محشو بالجبنة ومغطى بطبقة مقرمشة.">
+        <img src="images/food/chicken-cordon-bleu.jpg" 
+        alt="Chicken Cordon Bleu"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Chicken Cordon Bleu</h3>
+            <p>Crispy breaded chicken stuffed with cheese.</p>
+            <span class="price">275 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="main-courses"
+        data-name-ar="مشويات مشكلة"
+        data-description-ar="تشكيلة من اللحوم المشوية.">
+        <img src="images/food/mixed-grill.jpg" 
+        alt="Mixed Grill"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Mixed Grill</h3>
+            <p>A delicious selection of grilled meats.</p>
+            <span class="price">350 EGP</span>
+        </div>
+    </article>
+
+
+    <!-- PIZZA & BURGERS -->
+
+    <article class="menu-card" data-category="pizza-burgers"
+        data-name-ar="بيتزا مارجريتا"
+        data-description-ar="بيتزا بصلصة الطماطم وجبنة الموتزاريلا.">
+        <img src="images/food/margherita-pizza.jpg" 
+        alt="Margherita Pizza"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Margherita Pizza</h3>
+            <p>Classic pizza with tomato sauce and mozzarella cheese.</p>
+            <span class="price">190 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pizza-burgers"
+        data-name-ar="بيتزا بيبروني"
+        data-description-ar="بيتزا بالبيبروني والجبنة.">
+        <img src="images/food/pepperoni-pizza.jpg"
+         alt="Pepperoni Pizza"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Pepperoni Pizza</h3>
+            <p>Delicious pizza topped with pepperoni and cheese.</p>
+            <span class="price">240 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pizza-burgers"
+        data-name-ar="برجر لحم كلاسيك"
+        data-description-ar="برجر لحم بقري مع الخس والطماطم.">
+        <img src="images/food/classic-beef-burger.jpg" 
+        alt="Classic Beef Burger"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Classic Beef Burger</h3>
+            <p>Beef burger with fresh lettuce and tomato.</p>
+            <span class="price">195 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pizza-burgers"
+        data-name-ar="دبل تشيز برجر"
+        data-description-ar="برجر مزدوج مع طبقتين من الجبنة.">
+        <img src="images/food/double-cheese-burger.jpg" 
+        alt="Double Cheese Burger"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Double Cheese Burger</h3>
+            <p>Double beef burger with two layers of cheese.</p>
+            <span class="price">260 EGP</span>
+        </div>
+    </article>
+
+
+    <!-- PASTA -->
+
+    <article class="menu-card" data-category="pasta"
+        data-name-ar="باستا ألفريدو بالدجاج"
+        data-description-ar="مكرونة بصوص ألفريدو الكريمي والدجاج.">
+        <img src="images/food/chicken-alfredo.jpg"
+         alt="Chicken Alfredo"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Chicken Alfredo</h3>
+            <p>Pasta with creamy Alfredo sauce and chicken.</p>
+            <span class="price">210 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pasta"
+        data-name-ar="سباجيتي بولونيز"
+        data-description-ar="سباجيتي بصوص اللحم والطماطم.">
+        <img src="images/food/spaghetti-bolognese.jpg"
+         alt="Spaghetti Bolognese"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Spaghetti Bolognese</h3>
+            <p>Spaghetti with rich meat and tomato sauce.</p>
+            <span class="price">200 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pasta"
+        data-name-ar="بيني أرابياتا"
+        data-description-ar="مكرونة بيني بصوص طماطم حار.">
+        <img src="images/food/penne-arrabbiata.jpg"
+         alt="Penne Arrabbiata"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Penne Arrabbiata</h3>
+            <p>Penne pasta with spicy tomato sauce.</p>
+            <span class="price">170 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="pasta"
+        data-name-ar="باستا الجمبري"
+        data-description-ar="مكرونة بالجمبري وصوص غني بالنكهة.">
+        <img src="images/food/shrimp-pasta.jpg"
+         alt="Shrimp Pasta"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Shrimp Pasta</h3>
+            <p>Pasta with shrimp and a flavorful sauce.</p>
+            <span class="price">285 EGP</span>
+        </div>
+    </article>
+
+
+    <!-- DESSERTS -->
+
+    <article class="menu-card" data-category="desserts"
+        data-name-ar="مولتن كيك بالشوكولاتة"
+        data-description-ar="كيك شوكولاتة بقلب سائل دافئ.">
+        <img src="images/food/chocolate-lava-cake.jpg"
+         alt="Chocolate Lava Cake"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Chocolate Lava Cake</h3>
+            <p>Warm chocolate cake with a molten chocolate center.</p>
+            <span class="price">135 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="desserts"
+        data-name-ar="تشيز كيك نيويورك"
+        data-description-ar="تشيز كيك كريمي بالطريقة الكلاسيكية.">
+        <img src="images/food/new-york-cheesecake.jpg"
+         alt="New York Cheesecake"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>New York Cheesecake</h3>
+            <p>Classic creamy New York-style cheesecake.</p>
+            <span class="price">145 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="desserts"
+        data-name-ar="براونيز"
+        data-description-ar="قطع براونيز غنية بالشوكولاتة.">
+        <img src="images/food/brownies.jpg"
+         alt="Brownies"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Brownies</h3>
+            <p>Rich and fudgy chocolate brownies.</p>
+            <span class="price">110 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="desserts"
+        data-name-ar="آيس كريم"
+        data-description-ar="آيس كريم منعش بنكهات متنوعة.">
+        <img src="images/food/ice-cream.jpg"
+         alt="Ice Cream"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Ice Cream</h3>
+            <p>Refreshing ice cream in assorted flavors.</p>
+            <span class="price">90 EGP</span>
+        </div>
+    </article>
+
+
+    <!-- BEVERAGES -->
+
+    <article class="menu-card" data-category="beverages"
+        data-name-ar="عصير برتقال فريش"
+        data-description-ar="عصير برتقال طبيعي طازج.">
+        <img src="images/food/fresh-orange-juice.jpg" 
+        alt="Fresh Orange Juice"
+        loading="lazy"
+        decoding="async">
+        <div class="menu-card-info">
+            <h3>Fresh Orange Juice</h3>
+            <p>Freshly squeezed natural orange juice.</p>
+            <span class="price">85 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="beverages"
+        data-name-ar="آيس لاتيه"
+        data-description-ar="قهوة لاتيه باردة مع الحليب.">
+        <img src="images/food/iced-latte.jpg"
+         alt="Iced Latte"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Iced Latte</h3>
+            <p>Chilled latte coffee with milk.</p>
+            <span class="price">105 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="beverages"
+        data-name-ar="مشروب غازي"
+        data-description-ar="مشروب غازي منعش.">
+        <img src="images/food/soft-drink.jpg"
+         alt="Soft Drink"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Soft Drink</h3>
+            <p>Refreshing carbonated soft drink.</p>
+            <span class="price">45 EGP</span>
+        </div>
+    </article>
+
+    <article class="menu-card" data-category="beverages"
+        data-name-ar="مياه معدنية"
+        data-description-ar="زجاجة مياه معدنية.">
+        <img src="images/food/mineral-water.jpg"
+         alt="Mineral Water"
+         loading="lazy"
+         decoding="async">
+        <div class="menu-card-info">
+            <h3>Mineral Water</h3>
+            <p>Bottled mineral water.</p>
+            <span class="price">30 EGP</span>
+        </div>
+    </article>
+
+</div>
+
+</article>
+</div>
+</section>
+</main>
+<footer id="footer">
+    <div class="footer-content">
+        <h2>Maro's Restaurant</h2>
+        <p id="footer-tagline">Fresh Food, Great Moments</p>
+            <p id="footer-location">Nasr City, Cairo, Egypt</p>
+            <p id="footer-hours">Open Daily: 12 PM - 12 AM</p>
+            <p id="footer-copyright">© 2026 Maro's Restaurant.
+             All rights reserved.</p>
+    </div>
+</footer>
+<a href="#" id="back-to-top" aria-label="Back to top">
+    ↑
+</a>
+<script src="js/script.js"></script>
+</body>
+</html>
