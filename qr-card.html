@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maro's Restaurant - QR Menu Card</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e8e1d8;
+            font-family: Arial, sans-serif;
+        }
+
+        .qr-card {
+            width: 380px;
+            max-width: 95%;
+            padding: 35px 25px;
+            background-color: #FFF8EF;
+            border: 3px solid #C84332;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .restaurant-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #C84332;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            color: #51443B;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .qr-image {
+            width: 240px;
+            height: 240px;
+            max-width: 100%;
+            object-fit: contain;
+            background-color: white;
+            padding: 10px;
+            border-radius: 15px;
+            border: 2px solid #EFA34A;
+        }
+
+        h2 {
+            color: #29211D;
+            font-size: 22px;
+            margin: 25px 0 10px;
+        }
+
+        .description {
+            color: #51443B;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tagline {
+            color: #C84332;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        @media print {
+            @page {
+                size: A5 portrait;
+                margin: 0;
+            }
+
+            body {
+                min-height: 100vh;
+                background: white;
+            }
+
+            .qr-card {
+                box-shadow: none;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="qr-card">
+
+        <img
+            src="images/logo/maros-logo.png"
+            alt="Maro's Restaurant Logo"
+            class="restaurant-logo"
+        >
+
+        <h1>Maro's Restaurant</h1>
+
+        <p class="subtitle">
+            Fresh Food, Great Moments
+        </p>
+
+        <img
+            src="maros-restaurant-qr.png"
+            alt="Scan QR Code to View Menu"
+            class="qr-image"
+        >
+
+        <h2>Scan to View Our Menu</h2>
+
+        <p class="description">
+            Scan the QR code with your phone camera
+            to explore our delicious menu.
+        </p>
+
+        <p class="tagline">
+            Enjoy Your Meal!
+        </p>
+
+    </div>
+
+</body>
+</html>

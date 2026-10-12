@@ -1,93 +1,30 @@
 
-/* JavaScript Setup & DOM Basics */
+/* Maro's Restaurant JavaScript */
 
-console.log("Maro's Restaurant JavaScript is working!");
+/* Get HTML Elements */
 
 const languageButton = document.getElementById("language-toggle");
-
-console.log(languageButton);
-console.log(languageButton.textContent);
-
-
-/* Search & Category Filtering */
-
 const searchInput = document.getElementById("menu-search");
-
 const menuCards = document.querySelectorAll(".menu-card");
-
 const categoryButtons = document.querySelectorAll(".category-btn");
-
-let selectedCategory = "all";
-
-
-/* Combined Filter Function */
-
-function filterMenu() {
-    const searchText = searchInput.value.toLowerCase().trim();
-
-    menuCards.forEach(function (card) {
-        const dishName = card.querySelector("h3").textContent.toLowerCase();
-        const cardCategory = card.dataset.category;
-
-        const englishName = (card.dataset.nameEn || "").toLowerCase();
-        const arabicName = (card.dataset.nameAr || "").toLowerCase();
-
-        const matchesSearch =
-            englishName.includes(searchText) ||
-            arabicName.includes(searchText);
-
-        const matchesCategory =
-            selectedCategory === "all" || cardCategory === selectedCategory;
-
-        if (matchesSearch && matchesCategory) {
-            card.style.display = "flex";
-        } else {
-            card.style.display = "none";
-        }
-    });
-}
-
-
-/* Search Event */
-
-searchInput.addEventListener("input", function () {
-    filterMenu();
-});
-
-
-/* Category Buttons Events */
-
-categoryButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        selectedCategory = button.dataset.category;
-
-        categoryButtons.forEach(function (btn) {
-            btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-        filterMenu();
-    });
-});
-
-
-
-/* Language Toggle */
-
-let currentLanguage = "en";
 
 const menuTitle = document.getElementById("menu-title");
 const heroTitle = document.getElementById("hero-title");
 const heroTagline = document.getElementById("hero-tagline");
 const heroDescription = document.getElementById("hero-description");
-
 const searchLabel = document.getElementById("search-label");
 
 const footerTagline = document.getElementById("footer-tagline");
 const footerLocation = document.getElementById("footer-location");
 const footerHours = document.getElementById("footer-hours");
 const footerCopyright = document.getElementById("footer-copyright");
+
+const backToTopButton = document.getElementById("back-to-top");
+
+let currentLanguage = "en";
+
+
+/* Translations */
 
 const translations = {
     en: {
@@ -136,29 +73,130 @@ const translations = {
 };
 
 
-/* Back to Top Button */
-
-const backToTopButton = document.getElementById("back-to-top");
-
-backToTopButton.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-
-
-
-/* Save Original English Dish Information */
+/* Save English Dish Information */
 
 menuCards.forEach(function (card) {
     const dishName = card.querySelector("h3");
     const dishDescription = card.querySelector(".menu-card-info p");
 
-    card.dataset.nameEn = dishName.textContent;
-    card.dataset.descriptionEn = dishDescription.textContent;
+    card.dataset.nameEn = dishName.textContent.trim();
+    card.dataset.descriptionEn = dishDescription.textContent.trim();
+});
+
+
+/* Create Category Headings Automatically */
+
+const menuItems = document.querySelector(".menu-items");
+
+const categoryOrder = [
+    "appetizers",
+    "main-courses",
+    "pizza-burgers",
+    "pasta",
+    "desserts",
+    "beverages"
+];
+
+categoryOrder.forEach(function (category) {
+
+    const section = document.createElement("section");
+    section.className = "menu-section";
+    section.id = "category-" + category;
+    section.dataset.category = category;
+
+    const title = document.createElement("h3");
+    title.className = "section-title";
+    title.textContent = translations.en.categories[category];
+
+    const itemsContainer = document.createElement("div");
+    itemsContainer.className = "section-items";
+
+    menuCards.forEach(function (card) {
+        if (card.dataset.category === category) {
+            itemsContainer.appendChild(card);
+        }
+    });
+
+    section.appendChild(title);
+    section.appendChild(itemsContainer);
+    menuItems.appendChild(section);
+
+});
+
+
+/* Search Functionality */
+
+function filterMenu() {
+
+    const searchText = searchInput.value.toLowerCase().trim();
+
+    menuCards.forEach(function (card) {
+
+        const englishName = (card.dataset.nameEn || "").toLowerCase();
+        const arabicName = (card.dataset.nameAr || "").toLowerCase();
+
+        const matchesSearch =
+            englishName.includes(searchText) ||
+            arabicName.includes(searchText);
+
+        card.style.display = matchesSearch ? "flex" : "none";
+    });
+
+    document.querySelectorAll(".menu-section").forEach(function (section) {
+
+        const cards = section.querySelectorAll(".menu-card");
+
+        const hasVisibleCards = Array.from(cards).some(function (card) {
+            return card.style.display !== "none";
+        });
+
+        section.hidden = !hasVisibleCards;
+    });
+}
+
+searchInput.addEventListener("input", filterMenu);
+
+
+/* Category Buttons - Scroll Instead of Filter */
+
+categoryButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const category = button.dataset.category;
+
+        /* Clear search and show all dishes */
+
+        searchInput.value = "";
+        filterMenu();
+
+        /* Change active button */
+
+        categoryButtons.forEach(function (btn) {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        /* Find selected section */
+
+        let target;
+
+        if (category === "all") {
+            target = document.getElementById("menu");
+        } else {
+            target = document.getElementById("category-" + category);
+        }
+
+        /* Smooth scroll */
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
 });
 
 
@@ -192,8 +230,18 @@ function changeLanguage() {
 
     categoryButtons.forEach(function (button) {
         const category = button.dataset.category;
-
         button.textContent = text.categories[category];
+    });
+
+
+    /* Category Headings */
+
+    document.querySelectorAll(".menu-section").forEach(function (section) {
+
+        const category = section.dataset.category;
+        const title = section.querySelector(".section-title");
+
+        title.textContent = text.categories[category];
     });
 
 
@@ -206,9 +254,12 @@ function changeLanguage() {
         const dishImage = card.querySelector("img");
 
         if (currentLanguage === "ar") {
+
             dishName.textContent = card.dataset.nameAr;
             dishDescription.textContent = card.dataset.descriptionAr;
+
         } else {
+
             dishName.textContent = card.dataset.nameEn;
             dishDescription.textContent = card.dataset.descriptionEn;
         }
@@ -225,13 +276,13 @@ function changeLanguage() {
     footerCopyright.textContent = text.footerCopyright;
 
 
-    /* Update Search Results */
+    /* Update Search */
 
     filterMenu();
 }
 
 
-/* Language Button Event */
+/* Language Button */
 
 languageButton.addEventListener("click", function () {
 
@@ -242,15 +293,26 @@ languageButton.addEventListener("click", function () {
     }
 
     changeLanguage();
-
 });
 
 
+/* Back to Top Button */
+
+backToTopButton.addEventListener("click", function (event) {
+
+    event.preventDefault();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 
 
-/* Show / Hide Back to Top Button */
+/* Show / Hide Back to Top */
 
 function toggleBackToTop() {
+
     if (window.scrollY > 300) {
         backToTopButton.classList.add("show");
     } else {
@@ -261,3 +323,7 @@ function toggleBackToTop() {
 window.addEventListener("scroll", toggleBackToTop);
 
 toggleBackToTop();
+
+/* Initial Search State */
+
+filterMenu();
