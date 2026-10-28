@@ -539,3 +539,25 @@ html {
         font-size: 23px;
     }
 }
+
+/* Restaurant Logo Watermark */
+
+#menu {
+    position: relative;
+    isolation: isolate;
+}
+
+#menu::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("../images/logo/maros-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: min(65vw, 450px);
+
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: -1;
+}
