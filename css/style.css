@@ -540,7 +540,8 @@ html {
     }
 }
 
-/* Restaurant Logo Watermark */
+
+/* Restaurant Logo Watermark - Fixed */
 
 #menu {
     position: relative;
@@ -549,15 +550,20 @@ html {
 
 #menu::before {
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
 
     background-image: url("../images/logo/maros-logo.png");
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: min(65vw, 450px);
+    background-position: center 0px;
+    background-size: min(70vw, 450px);
 
-    opacity: 0.12;
+    opacity: 0.15;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
+}
+
+#menu > * {
+    position: relative;
+    z-index: 1;
 }
